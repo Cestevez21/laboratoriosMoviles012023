@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="d_titulo">24dp</dimen>
+    <dimen name="d_caldular">40dp</dimen>
+    <dimen name="top_marign">40dp</dimen>
+</resources>

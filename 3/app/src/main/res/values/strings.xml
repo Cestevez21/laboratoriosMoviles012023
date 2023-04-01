@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">3</string>
+    <string name="dolar_1">$ 1.00</string>
+    <string name="centavos_25">$ 0.25</string>
+    <string name="centavos_05">$ 0.05</string>
+    <string name="centavos_10">$ 0.10</string>
+    <string name="Titulo">Cantidad de Dinero</string>
+</resources>
