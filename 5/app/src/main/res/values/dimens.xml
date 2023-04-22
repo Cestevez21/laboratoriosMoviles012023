@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="s_gap">8dp</dimen>
+    <dimen name="std_gap">16dp</dimen>
+    <dimen name="tittle_size">32dp</dimen>
+    <dimen name="tittle_card_view_size">14dp</dimen>
+    <dimen name="Calification_text_size">24dp</dimen>
+    <dimen name="dft_gap">32dp</dimen>
+    <dimen name="size_card_view">92dp</dimen>
+    <dimen name="big_gap">64dp</dimen>
+    <dimen name="medium_text_size">16dp</dimen>
+    <dimen name="tittle_text_size">32dp</dimen>
+    <dimen name="g_gap">32dp</dimen>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">5</string>
+    <string name="tittle">Billboard</string>
+    <string name="Star_Wars_3_tittle">Star Wars episodio 3: La Venganza de los Sith</string>
+    <string name="SW3_calification">9.8</string>
+    <string name="hp_3_title">Harry Potter y la Piedra Filosofal</string>
+    <string name="hp3_calificatin">9.5</string>
+    <string name="new_movie_text">New Movie</string>
+    <string name="hint_name">name</string>
+    <string name="category_text">category</string>
+    <string name="description_hint">description</string>
+    <string name="submit_text">submit</string>
+    <string name="description_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat venenatis aliquet. Cras nec augue auctor, vehicula lectus semper, imperdiet mauris. Nulla tellus turpis, eleifend quis sodales nec, consectetur a dui. Integer vulputate, ex eget lobortis pharetra, urna justo tincidunt lorem, id suscipit nibh lectus id tellus.</string>
+    <string name="categoria_hint">Ciencia Ficcion</string>
+</resources>
