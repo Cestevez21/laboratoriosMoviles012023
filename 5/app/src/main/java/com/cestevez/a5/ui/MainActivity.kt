@@ -1,8 +1,8 @@
-package com.cestevez.a5
+package com.cestevez.a5.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
+import com.cestevez.a5.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

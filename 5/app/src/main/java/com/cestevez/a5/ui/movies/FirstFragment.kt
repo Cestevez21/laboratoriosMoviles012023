@@ -1,4 +1,4 @@
-package com.cestevez.a5
+package com.cestevez.a5.ui.movies
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import com.cestevez.a5.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class FirstFragment : Fragment() {
