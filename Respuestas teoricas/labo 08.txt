@@ -1,0 +1,4 @@
+1) Nos permite reutilizar una plantilla en especifico las veces que nosotros necesitemos, se crean dinamicamente mediante eventos de creación
+
+2) Adapter: se encarga de vincular los datos de una lista o de un conjunto de datos con las vistas que se muestran en pantalla
+ViewHolder: se utiliza para almacenar una referencia a la vista de cada elemento de la lista

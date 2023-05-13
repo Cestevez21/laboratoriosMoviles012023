@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.cestevez.a5.ui.movie.viewmodel.MovieViewModel" />
+    </data>
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_first"
+        android:id="@+id/movieItemCardView"
         android:layout_width="match_parent"
         android:layout_height="92dp"
-        android:layout_marginStart="@dimen/s_gap"
-        android:layout_marginEnd="@dimen/s_gap"
+        android:layout_margin="@dimen/s_gap"
         android:backgroundTint="@color/cardLayout"
         app:cardCornerRadius="@dimen/s_gap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ui.movie.billboard.recyclerview.MovieItemFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,39 +32,40 @@
                 android:src="@drawable/star_wars"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.127"
+                app:layout_constraintHorizontal_bias="0.102"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
             </ImageView>
 
             <TextView
-                android:id="@+id/textView7"
-                android:layout_width="212dp"
-                android:layout_height="40dp"
+                android:id="@+id/titleTextView"
+                android:layout_width="141dp"
+                android:layout_height="37dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/Star_Wars_3_tittle"
                 android:textColor="@color/white"
                 android:textSize="@dimen/tittle_card_view_size"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.737"
+                app:layout_constraintHorizontal_bias="0.301"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/qualiticationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/SW3_calification"
                 android:textColor="@color/calification"
                 android:textSize="@dimen/Calification_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/titleTextView"
                 app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

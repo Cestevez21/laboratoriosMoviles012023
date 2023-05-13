@@ -9,7 +9,7 @@
         android:id="@+id/firstFragment2"
         android:name="com.cestevez.a5.ui.movie.billboard.BillboardFragment"
         android:label="first_fragment"
-        tools:layout="@layout/first_fragment" >
+        tools:layout="@layout/billboard_fragment" >
         <action
             android:id="@+id/action_firstFragment2_to_thirdFragment"
             app:destination="@id/thirdFragment" />
@@ -21,7 +21,7 @@
         android:id="@+id/thirdFragment"
         android:name="com.cestevez.a5.ui.movie.ThirdFragment"
         android:label="second_fragment"
-        tools:layout="@layout/second_fragment" >
+        tools:layout="@layout/billboard_movie_fragment" >
         <action
             android:id="@+id/action_thirdFragment_to_firstFragment2"
             app:destination="@id/firstFragment2" />
@@ -30,7 +30,7 @@
         android:id="@+id/secondFragment"
         android:name="com.cestevez.a5.ui.movie.SecondFragment"
         android:label="third_fragment"
-        tools:layout="@layout/third_fragment" >
+        tools:layout="@layout/new_movie_fragment" >
         <action
             android:id="@+id/action_secondFragment_to_firstFragment2"
             app:destination="@id/firstFragment2" />

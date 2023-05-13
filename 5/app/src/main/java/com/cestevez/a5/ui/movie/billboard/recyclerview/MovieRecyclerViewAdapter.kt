@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cestevez.a5.data.model.MovieModel
-import com.cestevez.a5.databinding.ThirdFragmentBinding
+import com.cestevez.a5.databinding.MovieItemBinding
 
 class MovieRecyclerViewAdapter (
-    private val clickListener: MovieModel) : RecyclerView.Adapter<MovieRecyclerViewHolder>(){
+    private val clickListener: (MovieModel) -> Unit) : RecyclerView.Adapter<MovieRecyclerViewHolder>(){
     private val movies = ArrayList<MovieModel>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieRecyclerViewHolder {
-        val binding = ThirdFragmentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieRecyclerViewHolder(binding)
     }
 

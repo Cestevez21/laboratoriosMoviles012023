@@ -16,7 +16,6 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel(){
     val qualification = MutableLiveData("")
     val status = MutableLiveData("")
 
-    //logical on back
     private var screenNumber: Int = 0
 
     fun getScreenFragment()= screenNumber
@@ -31,10 +30,9 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel(){
     fun SetBillboardFragment() {
         screenNumber = 0
     }
-
     fun getMovies () = repository.getMovies()
 
-    private fun addMovie (movie: MovieModel) = repository.setMovies(movie)
+    private fun addMovie (movie: MovieModel) = repository.addMovies(movie)
 
     fun createMovie(){
         if(!validateData()){
@@ -86,7 +84,7 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel(){
     companion object{
         val Factory = viewModelFactory {
             initializer {
-                val movieRepositoryApp = (this[APPLICATION_KEY] as MovieReviewerApplication).movieRepository
+                val movieRepositoryApp = (this[APPLICATION_KEY] as MovieReviwerApplication).MovieRepository
 
                 MovieViewModel(movieRepositoryApp)
             }

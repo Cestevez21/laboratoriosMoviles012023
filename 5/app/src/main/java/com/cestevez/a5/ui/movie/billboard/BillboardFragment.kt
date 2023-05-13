@@ -7,52 +7,83 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cestevez.a5.R
 import com.cestevez.a5.data.model.MovieModel
+import com.cestevez.a5.databinding.BillboardFragmentBinding
+import com.cestevez.a5.ui.movie.billboard.recyclerview.MovieRecyclerViewAdapter
 import com.cestevez.a5.ui.movie.billboard.recyclerview.MovieRecyclerViewHolder
 import com.cestevez.a5.ui.movie.viewmodel.MovieViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class BillboardFragment : Fragment() {
 
-    private lateinit var buttonFirstFragment: FloatingActionButton
-    private lateinit var cardViewFirst: CardView
-    private lateinit var cardViewSecond: CardView
-    private lateinit var adapter: MovieRecyclerViewHolder
 
-    private lateinit var binding: FragmentBi
+    private lateinit var recyclerViewMovies: RecyclerView
+    private lateinit var adapter: MovieRecyclerViewAdapter
+
+    private val movieViewModel: MovieViewModel by activityViewModels{
+        MovieViewModel.Factory
+    }
+
+    private lateinit var binding: BillboardFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = BillboardFragment.inflate(inflater,container,false)
+        binding = BillboardFragmentBinding.inflate(inflater,container,false)
         return binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        movieViewModel.SetMovieFragment()
+    }
     private fun showSelectedItem(movie: MovieModel){
-        MovieViewModel.setSelectedMovie(movie)
+        movieViewModel.setSelectedMovie(movie)
         findNavController().navigate(R.id.action_firstFragment2_to_secondFragment)
     }
     private fun displayMovies(){
-        adapter.setData(MovieViewModel.getMovies())
+        adapter.setData(movieViewModel.getMovies())
         adapter.notifyDataSetChanged()
+
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bind()
-        buttonFirstFragment.setOnClickListener{
-            it.findNavController().navigate(R.id.action_firstFragment2_to_thirdFragment)
-        }
-        cardViewFirst.setOnClickListener{
-            it.findNavController().navigate(R.id.action_firstFragment2_to_secondFragment)
-        }
+        setRecyclerView(view)
+        setViewModel()
+        listeners()
     }
 
     private fun bind() {
-        buttonFirstFragment = view?.findViewById(R.id.button_first_fragment) as FloatingActionButton
-        cardViewFirst= view?.findViewById(R.id.card_view_first) as CardView
-        cardViewSecond = view?.findViewById(R.id.card_view_second) as CardView
+        recyclerViewMovies = view?.findViewById(R.id.movies_recycle_view) as RecyclerView
+    }
+
+    private fun listeners(){
+
+        binding.btnAddMovie.setOnClickListener{
+            movieViewModel.clearData()
+            it.findNavController().navigate(R.id.action_firstFragment2_to_thirdFragment)
+        }
+    }
+
+    private fun setRecyclerView(view: View){
+        binding.moviesRecycleView.layoutManager = LinearLayoutManager(view.context)
+
+        adapter = MovieRecyclerViewAdapter { selectedMovie ->
+            showSelectedItem(selectedMovie)
+        }
+
+        binding.moviesRecycleView.adapter = adapter
+        displayMovies()
+    }
+    private fun setViewModel(){
+        binding.viewmodel = movieViewModel
     }
 }

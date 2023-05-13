@@ -2,25 +2,16 @@ package com.cestevez.a5.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.cestevez.a5.R
-import com.cestevez.a5.databinding.ThirdFragmentBinding
+import com.cestevez.a5.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil
+            .setContentView(this, R.layout.activity_main)
+        supportActionBar!!.hide()
     }
-
-    private lateinit var binding: MainActivity
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = MainActivity.inflate(inflater,container,false)
-        return binding.root
-    }
-
 }
