@@ -1,4 +1,4 @@
-package com.cestevez.a5.ui.movies
+package com.cestevez.a5.ui.movie
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,8 +10,11 @@ import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.viewbinding.ViewBinding
 import com.cestevez.a5.R
 import com.cestevez.a5.data.model.MovieModel
+import com.cestevez.a5.databinding.ThirdFragmentBinding
+import com.cestevez.a5.ui.movie.viewmodel.MovieViewModel
 
 
 class ThirdFragment : Fragment() {
@@ -27,12 +30,13 @@ class ThirdFragment : Fragment() {
     private lateinit var calificationEditText: EditText
 
 
+    private lateinit var binding: ThirdFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.third_fragment, container, false)
+        binding = ThirdFragmentBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
 
@@ -45,7 +49,9 @@ class ThirdFragment : Fragment() {
         }
 
     }
-
+    private fun setViewModel() {
+        binding.viewmodel = movieViewModel
+    }
     private fun bind() {
         buttonSubmit = view?.findViewById(R.id.submit_button) !!
         nameEditText = view?.findViewById(R.id.nameEditText) !!

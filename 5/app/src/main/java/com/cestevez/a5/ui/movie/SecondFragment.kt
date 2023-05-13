@@ -1,4 +1,4 @@
-package com.cestevez.a5.ui.movies
+package com.cestevez.a5.ui.movie
 
 
 import android.os.Bundle
@@ -7,15 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cestevez.a5.R
+import com.cestevez.a5.databinding.ThirdFragmentBinding
 
 
 class SecondFragment : Fragment() {
 
+
+    private lateinit var binding: SecondFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.second_fragment, container, false)
+        binding = SecondFragmentBinding.inflate(inflater,container,false)
+        return binding.root
     }
 }

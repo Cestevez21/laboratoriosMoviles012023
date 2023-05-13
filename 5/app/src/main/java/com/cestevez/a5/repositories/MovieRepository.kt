@@ -5,7 +5,7 @@ import com.cestevez.a5.data.movies
 
 class MovieRepository (private val movie:MutableList<MovieModel>){
 
-    fun getMovie() = movies
+    fun getMovies() = movies
 
     fun addMovies(movie:MovieModel) = movies.add(movie)
 
