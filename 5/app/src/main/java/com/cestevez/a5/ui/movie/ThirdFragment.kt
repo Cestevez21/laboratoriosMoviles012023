@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.cestevez.a5.databinding.NewMovieFragmentBinding
 import com.cestevez.a5.ui.movie.viewmodel.MovieViewModel
 
@@ -36,5 +37,16 @@ class ThirdFragment : Fragment() {
     private fun setViewModel(){
         binding.viewmodel = movieViewModel
     }
-
-}
+    private fun observeStatus() {
+        movieViewModel.status.observe(viewLifecycleOwner) { status ->
+            when {
+                status.equals(MovieViewModel.WRONG_INFORMATION) -> {
+                    movieViewModel.clearStatus()
+                }
+                status.equals(MovieViewModel.MOVIE_CREATED) -> {
+                    movieViewModel.clearStatus()
+                    findNavController().popBackStack()
+                }
+            }
+        }
+}}
