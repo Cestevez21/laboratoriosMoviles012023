@@ -23,7 +23,6 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
 
     suspend fun getMovies() = repository.getMovies()
 
-    // TODO: complete getMovieWithActorById function
     suspend fun getMovieWithActorById(movieId: Int) = repository.getMoviesWithActors(movieId)
 
     private fun addMovies(movie: MovieModel) {

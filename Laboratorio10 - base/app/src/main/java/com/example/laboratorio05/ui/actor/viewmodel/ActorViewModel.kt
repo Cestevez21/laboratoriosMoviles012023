@@ -8,7 +8,9 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.laboratorio05.MovieReviewerApplication
 import com.example.laboratorio05.data.model.ActorModel
+import com.example.laboratorio05.data.model.MovieModel
 import com.example.laboratorio05.repositories.ActorRepository
+import com.example.laboratorio05.ui.movie.viewmodel.MovieViewModel
 import kotlinx.coroutines.launch
 
 class ActorViewModel(private val repository: ActorRepository) : ViewModel() {
@@ -17,12 +19,39 @@ class ActorViewModel(private val repository: ActorRepository) : ViewModel() {
 
     suspend fun getAllActors() = repository.getAllActors()
 
+    fun createActor() {
+        if (!validateData()) {
+            status.value = MovieViewModel.WRONG_INFORMATION
+            return
+        }
+
+        val actor = ActorModel(
+            name = name.value!!
+        )
+
+        addActor(actor)
+        clearData()
+
+        status.value = MovieViewModel.MOVIE_CREATED
+    }
+
     private fun addActor(actor: ActorModel){
         viewModelScope.launch {
             repository.addActors(actor)
         }
     }
-    fun createActor() {}
+
+    private fun validateData(): Boolean {
+        when {
+            name.value.isNullOrEmpty() -> return false
+        }
+        return true
+    }
+
+    fun clearData() {
+        name.value = ""
+    }
+
 
     fun clearStatus() {
         status.value = INACTIVE
