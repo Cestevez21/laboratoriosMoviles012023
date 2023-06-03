@@ -9,5 +9,7 @@ import androidx.room.PrimaryKey
 data class ActorModel (
     @PrimaryKey(autoGenerate = true) var actorId: Long = 0L,
     @ColumnInfo(name = "name") val name: String,
-)
-
+) {
+    constructor(name: String, ) :
+            this(0, name)
+}
